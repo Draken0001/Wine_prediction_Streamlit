@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 
-image_directory = "winepredict-master/360_F_135879274_4CgDcLaAwtfhIgLiSmqarh2H8krigOia.webp"
+image_directory = "360_F_135879274_4CgDcLaAwtfhIgLiSmqarh2H8krigOia.webp"
 image = Image.open(image_directory)
 
 PAGE_CONFIG = {"page_title":"Wine Quality App", 
@@ -44,7 +44,7 @@ df.columns = ['Fixed Acidity','Volatile Acidity','Citric Acid','Chlorides','Tota
 st.subheader('User Input parameters')
 st.table(df)
 
-data=pd.read_csv("winepredict-master/winequality-red.csv")
+data=pd.read_csv("winequality-red.csv")
 X =np.array(data[['fixed acidity', 'volatile acidity' , 'citric acid' , 'chlorides' , 'total sulfur dioxide' , 'alcohol' , 'sulphates']])
 Y = np.array(data['quality'])
 clf = RandomForestClassifier()
@@ -56,7 +56,7 @@ col1, col2=st.columns(2)
 with col1:
 	st.table(pd.DataFrame({'wine quality': [3, 4, 5, 6, 7, 8 ]}))
 with col2:
-	st.image("winepredict-master/wines-1761613_1920.jpg")
+	st.image("wines-1761613_1920.jpg")
 
 prediction = clf.predict(df)
 prediction_probability = clf.predict_proba(df)
